@@ -31,7 +31,7 @@ if __name__ == "__main__":
     # metric = mx.metric.create(loss_metric, allow_extra_outputs=True)
     tme = time.time()
     logtrain = LogMetricsCallback('logs/train_'+str(tme))
-
+    logval = LogMetricsCallback('logs/val_' + str(tme))
     # setup monitor for debugging
     def norm_stat(d):
         return mx.nd.norm(d) / np.sqrt(d.size)
@@ -55,5 +55,6 @@ if __name__ == "__main__":
             aux_params=aux_params,
             allow_missing=True,
             batch_end_callback=[mx.callback.Speedometer(batch_size=32, frequent=10, auto_reset=False), logtrain],
+            eval_batch_end_callback=[logval,],
             epoch_end_callback=checkpoint,
              )
