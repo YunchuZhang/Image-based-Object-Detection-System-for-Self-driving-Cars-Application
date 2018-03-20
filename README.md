@@ -11,7 +11,8 @@
     
 Data and Model
 https://drive.google.com/drive/u/0/folders/0BwXw1vJFiBDaZ1IwNjlEd0RZMFU
-for asking training Dataset and testing Dataset, you could send me email.
+
+For asking training Dataset and testing Dataset, you could send me email.
 
 # Yolo-v2
 Is updating
