@@ -52,18 +52,21 @@ def imgResizeBBoxTransform(img, bbox, sizet, grid_size=(7, 7, 5), dscale=32):
 
 # Convert raw images to rec files
 def toRecFile(imgroot, imglist, annotation, sizet, grid_size, dscale):
-    record = mx.recordio.MXIndexedRecordIO("drive_full.idx",
-                                           "drive_full.rec", 'w')
-    for i in range(len(imglist)):
-        imgname = imglist[i]
+    record = mx.recordio.MXIndexedRecordIO("drive_full_val.idx",
+                                           "drive_full_val.rec", 'w')
+    imglist1 = []
+    for i in range(2500):
+        imglist1.append("{}".format(67591 + i) + ".jpg")
+    for i in range(len(imglist1)):
+        imgname = imglist1[i]
         img = cv2.imread(imgroot + imgname)
         bbox = annotation[imgname]
-        print ("Now is processing img {}".format(imgname))
+        print "Now is processing img {}".format(imgname)
         imgR, bboxR = imgResizeBBoxTransform(img, bbox, sizet, grid_size, dscale)
         header = mx.recordio.IRHeader(flag=0, label=bboxR.flatten(), id=0, id2=0)
         s = mx.recordio.pack_img(header, imgR, quality=100, img_fmt='.jpg')
         record.write_idx(i, s)
-    print ("JPG to rec is Done")
+    print "JPG to rec is Done"
     record.close()
 
 
@@ -99,8 +102,8 @@ def xy2wh(idlnpy):
             elif idx == 20:
                 cls[3] = 1
             else:
-                print (idx)
-                print ("Not expected value")
+                print idx
+                print "Not expected value"
                 break
             assert w > 0 and h > 0, "wh should be > 0"
             box = [cx, cy, w, h] + cls
