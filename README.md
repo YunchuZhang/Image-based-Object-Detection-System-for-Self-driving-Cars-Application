@@ -7,7 +7,9 @@
     cd to the src root path and run "pyton run_train.py"
   
   For the test:
-    Please take a look of wild_test.ipynb and demo_test.ipynb in src
+    Please take a look of wild_test.ipynb and demo_test.ipynb in src first.
+    
+    And then run test.py which could output a json file for results and draw the bbox in image
     
 Data and Model
 https://drive.google.com/drive/u/0/folders/0BwXw1vJFiBDaZ1IwNjlEd0RZMFU
