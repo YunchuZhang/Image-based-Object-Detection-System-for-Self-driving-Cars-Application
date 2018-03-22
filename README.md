@@ -1,13 +1,13 @@
 # Image-based-Object-Detection-System-for-Self-driving-Cars-Application
 In this research project, I have done some things below:        
 
-Base on Deep learning (Mxnet) to implement object detection and tracking system on self-driving car system      
+ Base on Deep learning (Mxnet) to implement object detection and tracking system on self-driving car system      
 
-Based on given dataset and Yolo algorithm to construct special neural network model and update a new loss function      
+ Based on given dataset and Yolo algorithm to construct special neural network model and update a new loss function      
 
-Utilize GPU for training and tune parameters to converge and optimize the result        
+ Utilize GPU for training and tune parameters to converge and optimize the result        
 
-Optimize feedforward inference network and realize object detection and tracking in real time on camera     
+ Optimize feedforward inference network and realize object detection and tracking in real time on camera     
 
 
 (In the future) Move the system to robots for avoiding obstacle   
@@ -30,10 +30,14 @@ https://drive.google.com/drive/u/0/folders/0BwXw1vJFiBDaZ1IwNjlEd0RZMFU
 
 For asking training Dataset and testing Dataset, you could send me email.		
 
-To run the code:		
+To run the code:        
+ !!!First you need to change the code's path and make it suitable in your pc
 
-    mkdir and cd to the path of "DATA_rec/"
-    run "python data_util/py" for data preparaion with train and val recfile
+    Download data , model and label
+    mkdir and cd to the path of "new_data"
+    put generate_data.ipynb to folder"new_data" and run it to generate 50k new data
+    mkdir and cd to the path of "DATA_rec/" and the json you need is in new_data
+    run "python data_util/py" for data preparaion with train and val recfile
     cd to the src root path and run "pyton run_train.py"
   
   For the test:
