@@ -23,13 +23,19 @@ Yolo algorithm. There are 2 verson for it. [v1](https://arxiv.org/pdf/1506.02640
 Python,Mxnet 1.0, cuda8.0, tensorboardX,cudnn,opencv,GPU:nvidia 1070T
 
 
-# Yolo-v1
-
+# Yolo-v1  
+# Algorithm & Model Structure  
+Transform detection and classification problems in a regression problem  
+ 
 
 Data and Model
 https://drive.google.com/drive/u/0/folders/0BwXw1vJFiBDaZ1IwNjlEd0RZMFU     
 
-For asking training Dataset and testing Dataset, you could send me email.		
+For asking training Dataset and testing Dataset, you could send me email.  
+In original dataset:  
+
+10k images, 593 images do not have bbox,53910 bbox totally  
+vehicle : 0.84; Pedestrian : 0.07; Cyclist : 0.06; Traffic light : 0.03
 
 To run the code:  
 !!!First you need to change the code's path and make it suitable in your Pc  
