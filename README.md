@@ -58,7 +58,7 @@ vehicle : 0.84; Pedestrian : 0.07; Cyclist : 0.06; Traffic light : 0.03
     For real time predict, to run "pythonw real_time_object_detection" on Mac/ "python real_time_object_detection"
     
 # Result
-After about 24 hour's training(350 epoch),accuracy is about 0.99,precision is 0.83, recall is 0.98,h_diff is 1.3, w_diff is 1.23  
+After about 24 hour's training(350 epoch),accuracy is about 0.99,precision is 0.85, recall is 0.98,h_diff is 1.3, w_diff is 1.23  
 The result is shown below:  
 
 ![image](https://github.com/YunchuZhang/Image-based-Object-Detection-System-for-Self-driving-Cars-Application/blob/master/readme/1.png)  
