@@ -16,7 +16,9 @@ And I have done some things below:  
 
 See demo below or see result in jupyter notebook's result       
 
-Yolo algorithm. There are 2 verson for it. [v1](https://arxiv.org/pdf/1506.02640.pdf), [v2](https://arxiv.org/pdf/1612.08242.pdf).
+Yolo algorithm. There are 2 verson for it. [v1](https://arxiv.org/pdf/1506.02640.pdf), [v2](https://arxiv.org/pdf/1612.08242.pdf).  
+
+[Interperation video of my algorithm and codes]()
 
 
 # Dependencies
@@ -42,8 +44,7 @@ vehicle : 0.84; Pedestrian : 0.07; Cyclist : 0.06; Traffic light : 0.03
 !!!First you need to change the code's path and make it suitable in your Pc  
 
     Download data , model and label  
-    mkdir and cd to the path of "new_data"  
-    put generate_data.ipynb to folder"new_data" and run it to generate 50k new data  
+    cd to the path of "new_data" and run it to generate 50k new data  
     mkdir and cd to the path of "DATA_rec/" and the json you need is in new_data  
     run "python data_util/py" for data preparaion with train and val recfile  
     cd to the src root path and run "pyton run_train.py"  
