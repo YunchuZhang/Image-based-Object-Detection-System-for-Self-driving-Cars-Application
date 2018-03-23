@@ -50,9 +50,9 @@ To run the code:
     
 # Result
 After about 24 hour's training(350 epoch),accuracy is about 0.99,precision is 0.83, recall is 0.98,h_diff is 1.3, w_diff is 1.23  
-The result is shown below:  
-
-Demo for test data:  
+The result is shown below:  
+![image](https://github.com/YunchuZhang/Image-based-Object-Detection-System-for-Self-driving-Cars-Application/readme/1.png)
+Demo for test data:
 
 
 Real-time test:		
