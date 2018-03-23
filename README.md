@@ -15,7 +15,7 @@ In this research project, I have done some things below:
 
 See demo below or see result in jupyter notebook's result       
 
-Yolo algorithm. There are 2 verson for it. [v1](https://arxiv.org/pdf/1506.02640.pdf), [v2](https://arxiv.org/pdf/1612.08242.pdf)./
+Yolo algorithm. There are 2 verson for it. [v1](https://arxiv.org/pdf/1506.02640.pdf), [v2](https://arxiv.org/pdf/1612.08242.pdf).
 
 
 # Dependencies
@@ -31,14 +31,15 @@ https://drive.google.com/drive/u/0/folders/0BwXw1vJFiBDaZ1IwNjlEd0RZMFU
 For asking training Dataset and testing Dataset, you could send me email.		
 
 To run the code:        
- !!!First you need to change the code's path and make it suitable in your pc
+!!!First you need to change the code's path and make it suitable in your Pc  
 
-    Download data , model and label
-    mkdir and cd to the path of "new_data"
-    put generate_data.ipynb to folder"new_data" and run it to generate 50k new data
-    mkdir and cd to the path of "DATA_rec/" and the json you need is in new_data
-    run "python data_util/py" for data preparaion with train and val recfile
-    cd to the src root path and run "pyton run_train.py"
+    Download data , model and label  
+    mkdir and cd to the path of "new_data"  
+    put generate_data.ipynb to folder"new_data" and run it to generate 50k new data  
+    mkdir and cd to the path of "DATA_rec/" and the json you need is in new_data  
+    run "python data_util/py" for data preparaion with train and val recfile  
+    cd to the src root path and run "pyton run_train.py"  
+    
   
   For the test:
     Please take a look of wild_test.ipynb and demo_test.ipynb in src first.
@@ -48,7 +49,11 @@ To run the code:        
     For real time predict, to run "pythonw real_time_object_detection" on Mac/ "python real_time_object_detection"
     
 # Result
-Demo for test data:		
+After about 24 hour's training(350 epoch),accuracy is about 0.99,precision is 0.83, recall is 0.98,h_diff is 1.3, w_diff is 1.23  
+The result is shown below:  
+
+Demo for test data:  
+
 
 Real-time test:		
 # Refer:
