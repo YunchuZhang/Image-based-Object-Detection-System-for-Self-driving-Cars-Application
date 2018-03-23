@@ -37,7 +37,7 @@ In original dataset:
 10k images, 593 images do not have bbox,53910 bbox totally  
 vehicle : 0.84; Pedestrian : 0.07; Cyclist : 0.06; Traffic light : 0.03
 
-To run the code:  
+# To run the code:  
 !!!First you need to change the code's path and make it suitable in your Pc  
 
     Download data , model and label  
@@ -48,7 +48,8 @@ To run the code:
     cd to the src root path and run "pyton run_train.py"  
     
   
-  For the test:
+ # For the test:  
+  
     Please take a look of wild_test.ipynb and demo_test.ipynb in src first.
     
     And then run test.py which could output a json file for results and draw the bbox in image
