@@ -21,8 +21,8 @@ if __name__ == "__main__":
 
     # get some input
     # change it to the data rec you create, and modify the batch_size
-    train_data = get_iterator(path='DATA_rec/drive_full.rec', data_shape=(3, 224, 224), label_width=7*7*9, batch_size=32, shuffle=True)
-    val_data = get_iterator(path='DATA_rec/drive_full.rec', data_shape=(3, 224, 224), label_width=7*7*9, batch_size=32)
+    train_data = get_iterator(path='DATA_rec/drive_full5k.rec', data_shape=(3, 224, 224), label_width=7*7*9, batch_size=32, shuffle=True)
+    val_data = get_iterator(path='DATA_rec/drive_fullval.rec', data_shape=(3, 224, 224), label_width=7*7*9, batch_size=32)
     
     # allocate gpu/cpu mem to the sym
     mod = mx.mod.Module(symbol=sym, context=mx.gpu(0))
@@ -45,11 +45,12 @@ if __name__ == "__main__":
     # optimization method, training epoch, learning rate/scheduler)
     mod.fit(train_data=train_data,
             eval_data=val_data,
-            num_epoch=600,
+            num_epoch=1000,
             monitor=mon,
             eval_metric=LossMetric(0.5),
             optimizer='rmsprop',
-            optimizer_params={'learning_rate':0.01, 'lr_scheduler': mx.lr_scheduler.FactorScheduler(300000, 0.1, 0.001)},
+            optimizer_params={'learning_rate':0.01, 'lr_scheduler': mx.lr_scheduler.FactorScheduler(300000, 0.1, 0.001),
+                              },
             initializer=mx.init.Xavier(magnitude=2, rnd_type='gaussian', factor_type='in'),
             arg_params=args_params,
             aux_params=aux_params,

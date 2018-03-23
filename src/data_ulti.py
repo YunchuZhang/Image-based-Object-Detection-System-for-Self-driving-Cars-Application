@@ -4,7 +4,7 @@ import cv2
 import mxnet as mx
 import numpy as np
 
-IMGROOT = "./DATA/"
+IMGROOT = "./new_data/"
 
 
 # get iterator
@@ -41,7 +41,10 @@ def imgResizeBBoxTransform(img, bbox, sizet, grid_size=(7, 7, 5), dscale=32):
         cyt = 1.0 * cy / himg
         wt = 1.0 * w / wimg
         ht = 1.0 * h / himg
-        assert wt < 1 and ht < 1
+        print(wt)
+        print(ht)
+        assert wt <=1.1 and ht <=1
+
         i, j, xyolo, yyolo = get_YOLO_xy([cxt, cyt], grid_size, dscale, sizet)
         # print "one yolo box is {}".format((i, j, xyolo, yyolo, wt, ht))
         label_vec = np.asarray([1, xyolo, yyolo, wt, ht] + cls)
@@ -52,31 +55,36 @@ def imgResizeBBoxTransform(img, bbox, sizet, grid_size=(7, 7, 5), dscale=32):
 
 # Convert raw images to rec files
 def toRecFile(imgroot, imglist, annotation, sizet, grid_size, dscale):
-    record = mx.recordio.MXIndexedRecordIO("drive_full_val.idx",
-                                           "drive_full_val.rec", 'w')
+    record = mx.recordio.MXIndexedRecordIO("drive_full5k.idx",
+                                           "drive_full5k.rec", 'w')
     imglist1 = []
-    for i in range(2500):
-        imglist1.append("{}".format(67591 + i) + ".jpg")
+    imglist2 =[]
+    for i in range(50000):
+        imglist1.append("{}".format(1 + i) + ".jpg")
+        imglist2.append("{}".format(1 + i) )
     for i in range(len(imglist1)):
         imgname = imglist1[i]
+        imgname1 =imglist2[i]
         img = cv2.imread(imgroot + imgname)
-        bbox = annotation[imgname]
-        print "Now is processing img {}".format(imgname)
+        bbox = annotation[imgname1]
+        print ("Now is  img {}".format(imgname1))
+        print ("Now is processing img {}".format(imgname))
         imgR, bboxR = imgResizeBBoxTransform(img, bbox, sizet, grid_size, dscale)
         header = mx.recordio.IRHeader(flag=0, label=bboxR.flatten(), id=0, id2=0)
         s = mx.recordio.pack_img(header, imgR, quality=100, img_fmt='.jpg')
         record.write_idx(i, s)
-    print "JPG to rec is Done"
+    print ("JPG to rec is Done")
     record.close()
 
 
 def idltonumpy(idlfile, savepath):
     label_np = {}
     with open(idlfile) as f:
-        for line in f:
-            jsonload = json.loads(line)
-            assert len(jsonload.keys()) == 1, "Only one image per json file"
-            label_np[jsonload.keys()[0]] = jsonload[jsonload.keys()[0]]
+        label_np = json.load(f)
+        #for line in f:
+            #jsonload = json.loads(line)
+            #assert len(jsonload.keys()) == 1, "Only one image per json file"
+            #label_np[jsonload.keys()[0]] = jsonload[jsonload.keys()[0]]
     np.save(save_path, label_np)
     return label_np
 
@@ -86,12 +94,17 @@ def xy2wh(idlnpy):
     for key in idlnpy.keys():
         boxxy = idlnpy[key]
         boxeswh = []
+        print(key)
         for each in boxxy:
             x1, y1, x2, y2, idx = each
             cx = int((x2 + x1) / 2)
+           # print(cx)
             cy = int((y1 + y2) / 2)
+           # print(cy)
             w = int(x2 - x1)
+            #print(w)
             h = int(y2 - y1)
+            #print(h)
             cls = [0, 0, 0, 0]
             if idx == 1:
                 cls[0] = 1
@@ -102,10 +115,10 @@ def xy2wh(idlnpy):
             elif idx == 20:
                 cls[3] = 1
             else:
-                print idx
-                print "Not expected value"
+                print (idx)
+                print ("Not expected value")
                 break
-            assert w > 0 and h > 0, "wh should be > 0"
+            assert w >= 0 and h >=0, "wh should be > 0"
             box = [cx, cy, w, h] + cls
             boxeswh.append(box)
         labelwh[key] = boxeswh
@@ -114,8 +127,10 @@ def xy2wh(idlnpy):
 
 if __name__ == "__main__":
     # transform jpg to rec file
-    labelfile = "./DATA/label.idl"
-    save_path = "./DATA/label.npy"
+    #labelfile = "./DATA/label.idl"
+    #save_path = "./DATA/label.npy"
+    labelfile = "./new_data/testresult.json"
+    save_path = "./new_data/label.npy"
     idlnpy = idltonumpy(labelfile, save_path)
     labelwh = xy2wh(idlnpy)
     imglist = labelwh.keys()

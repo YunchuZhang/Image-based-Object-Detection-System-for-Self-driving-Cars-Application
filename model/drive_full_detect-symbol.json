@@ -2835,7 +2835,7 @@
     {
       "op": "_mul_scalar", 
       "name": "_mulscalar3", 
-      "attrs": {"scalar": "5"}, 
+      "attrs": {"scalar": "4.5"}, 
       "inputs": [[322, 0, 0]]
     }, 
     {
@@ -2846,7 +2846,7 @@
     {
       "op": "_mul_scalar", 
       "name": "_mulscalar2", 
-      "attrs": {"scalar": "5"}, 
+      "attrs": {"scalar": "4.5"}, 
       "inputs": [[324, 0, 0]]
     }, 
     {
@@ -2867,7 +2867,7 @@
     {
       "op": "_mul_scalar", 
       "name": "_mulscalar5", 
-      "attrs": {"scalar": "5"}, 
+      "attrs": {"scalar": "4.5"}, 
       "inputs": [[328, 0, 0]]
     }, 
     {
@@ -2878,7 +2878,7 @@
     {
       "op": "_mul_scalar", 
       "name": "_mulscalar4", 
-      "attrs": {"scalar": "5"}, 
+      "attrs": {"scalar": "4.5"}, 
       "inputs": [[330, 0, 0]]
     }, 
     {
@@ -2904,7 +2904,7 @@
     {
       "op": "_mul_scalar", 
       "name": "_mulscalar7", 
-      "attrs": {"scalar": "5"}, 
+      "attrs": {"scalar": "8"}, 
       "inputs": [[335, 0, 0]]
     }, 
     {
@@ -2920,7 +2920,7 @@
     {
       "op": "_mul_scalar", 
       "name": "_mulscalar6", 
-      "attrs": {"scalar": "5"}, 
+      "attrs": {"scalar": "8"}, 
       "inputs": [[338, 0, 0]]
     }, 
     {
@@ -2946,7 +2946,7 @@
     {
       "op": "_mul_scalar", 
       "name": "_mulscalar9", 
-      "attrs": {"scalar": "5"}, 
+      "attrs": {"scalar": "8"}, 
       "inputs": [[343, 0, 0]]
     }, 
     {
@@ -2962,7 +2962,7 @@
     {
       "op": "_mul_scalar", 
       "name": "_mulscalar8", 
-      "attrs": {"scalar": "5"}, 
+      "attrs": {"scalar": "8"}, 
       "inputs": [[346, 0, 0]]
     }, 
     {

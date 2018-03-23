@@ -60,65 +60,65 @@ def bboxdraw(img, label, dscale=32):
     #plt.show()
 
     return np.float64(bboxl).tolist()
+if __name__ == "__main__":
+    # prepare test data
+    imgroot = "./DATA/testing/testing/"
+    imglist1 = []
 
-# prepare test data
-imgroot = "./DATA/testing/testing/"
-imglist1 = []
+    for i in range(2000):
+        imglist1.append("{}".format(70091 + i) + ".jpg")
 
-for i in range(200):
-    imglist1.append("{}".format(70091 + i) + ".jpg")
-
-imgname = imglist1[0]
-img = cv2.imread(imgroot + imgname)
-hi, wi = img.shape[:2]
-W = int(224 * (wi * 1.0 / hi))
-H = 224
-img_resize = cv2.resize(img, (W, H))
-imga = img_resize.transpose((2, 0, 1)).reshape(1, 3, H, W)
-imgb = imga
-print ("Now is predicting img {}".format(imgname))
-
-for i in range(1,(len(imglist1))):
-
-    imgname = imglist1[i]
+    imgname = imglist1[0]
     img = cv2.imread(imgroot + imgname)
     hi, wi = img.shape[:2]
     W = int(224 * (wi * 1.0 / hi))
     H = 224
-    img_resize1 = cv2.resize(img, (W, H))
-    imga = img_resize1.transpose((2, 0, 1)).reshape(1, 3, H, W)
+    img_resize = cv2.resize(img, (W, H))
+    imga = img_resize.transpose((2, 0, 1)).reshape(1, 3, H, W)
+    imgb = imga
     print ("Now is predicting img {}".format(imgname))
-    imgb = np.vstack([imgb, imga])
+
+    for i in range(1,(len(imglist1))):
+
+        imgname = imglist1[i]
+        img = cv2.imread(imgroot + imgname)
+        hi, wi = img.shape[:2]
+        W = int(224 * (wi * 1.0 / hi))
+        H = 224
+        img_resize1 = cv2.resize(img, (W, H))
+        imga = img_resize1.transpose((2, 0, 1)).reshape(1, 3, H, W)
+        print ("Now is predicting img {}".format(imgname))
+        imgb = np.vstack([imgb, imga])
 
 
-img_nd = mx.nd.array(ctx=mx.gpu(0), source_array=imgb)
-img_itr = mx.io.NDArrayIter(data=img_nd, data_name='data',  batch_size=1)
+    img_nd = mx.nd.array(ctx=mx.gpu(0), source_array=imgb)
+    img_itr = mx.io.NDArrayIter(data=img_nd, data_name='data',  batch_size=1)
 
-# get sym
-sym, args_params, aux_params = mx.model.load_checkpoint('drive_full_detect', 418)
-logit = sym.get_internals()['logit_output']
-mod = mx.mod.Module(symbol=logit, context=mx.gpu(0))
-mod.bind(img_itr.provide_data)
-mod.init_params(allow_missing=False, arg_params=args_params, aux_params=aux_params,
-                initializer=mx.init.Xavier(magnitude=2,rnd_type='gaussian',factor_type='in'))
-out = mod.predict(eval_data=img_itr, num_batch=200)
+    # get sym
+    sym, args_params, aux_params = mx.model.load_checkpoint('drive_full_detect', 422)
+    logit = sym.get_internals()['logit_output']
+    mod = mx.mod.Module(symbol=logit, context=mx.gpu(0))
+    mod.bind(img_itr.provide_data)
+    mod.init_params(allow_missing=False, arg_params=args_params, aux_params=aux_params,
+                    initializer=mx.init.Xavier(magnitude=2,rnd_type='gaussian',factor_type='in'))
+    out = mod.predict(eval_data=img_itr, num_batch=2000)
 
-# show and record
-record = {}
-img_itr.reset()
-for i in range(200):
-    batch = img_itr.next()
-    img = batch.data[0].asnumpy()[0].transpose((1,2,0))
-    #label = batch.label[0].asnumpy().reshape((7,7,9))
-    pred = (out.asnumpy()[i]+1)/2
+    # show and record
+    record = {}
+    img_itr.reset()
+    for i in range(2000):
+        batch = img_itr.next()
+        img = batch.data[0].asnumpy()[0].transpose((1,2,0))
+        #label = batch.label[0].asnumpy().reshape((7,7,9))
+        pred = (out.asnumpy()[i]+1)/2
 
-    bboxlist = bboxdraw(img, pred)
+        bboxlist = bboxdraw(img, pred)
 
-    record[i] = bboxlist
-    print ("Now is showing img {}".format(i))
-# write to json
-import json
-json = json.dumps(record)
-f = open(" testresult.json", "w")
-f.write(json)
-f.close()
+        record[i] = bboxlist
+        print ("Now is showing img {}".format(i))
+    # write to json
+    import json
+    json = json.dumps(record)
+    f = open(" testresult.json", "w")
+    f.write(json)
+    f.close()
