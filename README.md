@@ -18,7 +18,7 @@ See demo below or see result in jupyter notebook's result
 
 Yolo algorithm. There are 2 verson for it. [v1](https://arxiv.org/pdf/1506.02640.pdf), [v2](https://arxiv.org/pdf/1612.08242.pdf).  
 
-[Interperation video of my algorithm and codes]()
+[Interperation video of my algorithm and codes](https://drive.google.com/file/d/1-v0i_KixemGHBmBk2lMOLATMamX6n-JC/view?usp=sharing)
 
 
 # Dependencies
