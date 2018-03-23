@@ -1,5 +1,6 @@
 # Image-based-Object-Detection-System-for-Self-driving-Cars-Application
-In this research project, I have done some things below:        
+The Goal of this project: Detect and track 4 different objects includes vehicle, pedestrian, cyclist and traffic lights (labeled as 1, 2, 3, 20).   
+And I have done some things below:  
 
  Base on Deep learning (Mxnet) to implement object detection and tracking system on self-driving car system      
 
