@@ -50,12 +50,24 @@ To run the code:
     
 # Result
 After about 24 hour's training(350 epoch),accuracy is about 0.99,precision is 0.83, recall is 0.98,h_diff is 1.3, w_diff is 1.23  
-The result is shown below:  
-![image](https://github.com/YunchuZhang/Image-based-Object-Detection-System-for-Self-driving-Cars-Application/readme/1.png)
+The result is shown below:  
+
+![image](https://github.com/YunchuZhang/Image-based-Object-Detection-System-for-Self-driving-Cars-Application/blob/master/readme/1.png)  
+![image](https://github.com/YunchuZhang/Image-based-Object-Detection-System-for-Self-driving-Cars-Application/blob/master/readme/2.png)  
+![image](https://github.com/YunchuZhang/Image-based-Object-Detection-System-for-Self-driving-Cars-Application/blob/master/readme/3.png)  
+![image](https://github.com/YunchuZhang/Image-based-Object-Detection-System-for-Self-driving-Cars-Application/blob/master/readme/4.png)  
+![image](https://github.com/YunchuZhang/Image-based-Object-Detection-System-for-Self-driving-Cars-Application/blob/master/readme/5.png)  
+![image](https://github.com/YunchuZhang/Image-based-Object-Detection-System-for-Self-driving-Cars-Application/blob/master/readme/6.png)  
+![image](https://github.com/YunchuZhang/Image-based-Object-Detection-System-for-Self-driving-Cars-Application/blob/master/readme/7.png)  
+![image](https://github.com/YunchuZhang/Image-based-Object-Detection-System-for-Self-driving-Cars-Application/blob/master/readme/8.png)  
+![image](https://github.com/YunchuZhang/Image-based-Object-Detection-System-for-Self-driving-Cars-Application/blob/master/readme/9.png)  
+
 Demo for test data:
 
 
-Real-time test:		
+Real-time test:  
+1.video data test: https://drive.google.com/open?id=1a9H8viB03dgJFk3aSzO0xqn8tFwSbmVm   
+2.real-time test on road:
 # Refer:
 
 http://blog.topspeedsnail.com/archives/2068
