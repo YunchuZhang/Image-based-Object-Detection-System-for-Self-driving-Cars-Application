@@ -26,6 +26,7 @@ Python,Mxnet 1.0, cuda8.0, tensorboardX,cudnn,opencv,GPU:nvidia 1070T
 # Yolo-v1  
 # Algorithm & Model Structure  
 Transform detection and classification problems in a regression problem  
+![image](https://github.com/YunchuZhang/Image-based-Object-Detection-System-for-Self-driving-Cars-Application/blob/master/readme/0.jpg)
  
 
 Data and Model
