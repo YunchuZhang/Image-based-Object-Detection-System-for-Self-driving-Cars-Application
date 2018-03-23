@@ -30,7 +30,7 @@ https://drive.google.com/drive/u/0/folders/0BwXw1vJFiBDaZ1IwNjlEd0RZMFU
 
 For asking training Dataset and testing Dataset, you could send me email.		
 
-To run the code:        
+To run the code:  
 !!!First you need to change the code's path and make it suitable in your Pc  
 
     Download data , model and label  
