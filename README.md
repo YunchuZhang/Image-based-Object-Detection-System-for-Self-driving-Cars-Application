@@ -2,13 +2,13 @@
 The Goal of this project: Detect and track 4 different objects includes vehicle, pedestrian, cyclist and traffic lights (labeled as 1, 2, 3, 20).   
 And I have done some things below:  
 
- Base on Deep learning (Mxnet) to implement object detection and tracking system on self-driving car system      
+ 1.Base on Deep learning (Mxnet) to implement object detection and tracking system on self-driving car system      
 
- Based on given dataset and Yolo algorithm to construct special neural network model and update a new loss function      
+ 2.Based on given dataset and Yolo algorithm to construct special neural network model and update a new loss function      
 
- Utilize GPU for training and tune parameters to converge and optimize the result        
+ 3.Utilize GPU for training and tune parameters to converge and optimize the result        
 
- Optimize feedforward inference network and realize object detection and tracking in real time on camera     
+ 4.Optimize feedforward inference network and realize object detection and tracking in real time on camera     
 
 
 (In the future) Move the system to robots for avoiding obstacle   
